@@ -8,9 +8,11 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
+    var giphyObject = GiphyApi()
     var body: some View {
-        Text("Curv Test")
+        trendingView(giphyObject: self.giphyObject)
     }
 }
 
