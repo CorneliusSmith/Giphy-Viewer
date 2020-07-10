@@ -10,9 +10,31 @@ import SwiftUI
 
 
 struct ContentView: View {
-    var giphyObject = GiphyApi()
+    @ObservedObject var giphyObject = GiphyApi()
+    @State var searchString: String = ""
+    @State private var selection = 0
+    
+    
     var body: some View {
-        trendingView(giphyObject: self.giphyObject)
+        TabView(selection: $selection){
+            trendingView(giphyObject: self.giphyObject, searchString: self.$searchString)
+                .tabItem {
+                    VStack {
+                        Image(systemName: "circle.fill")
+                        Text("Trending")
+                    }
+                }
+                .tag(0)
+            
+                FavouritesView()
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "star.fill")
+                            Text("Favourites")
+                        }
+                    }
+                    .tag(1)
+        }
     }
 }
 

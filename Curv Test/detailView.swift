@@ -16,8 +16,20 @@ struct detailView: View {
     
     var body: some View {
         VStack{
-                VideoView(videoURL: URL(string: gifURL)!)
+            GifView(gifURL: URL(string: gifURL)!)
                     .frame(width: sizeRect.width, height: 400, alignment: .center)
+            HStack{
+                Text("Favourite:")
+                    .font(.title)
+                Button(action: {
+                    print("Hi")
+                }){
+                    Image(systemName: "star.fill")
+                    .resizable()
+                    .frame(width: 25, height: 25)
+                }
+            }
+                
             
             Spacer()
         }.navigationBarTitle(Text(self.gifTitle), displayMode: .inline)

@@ -10,55 +10,27 @@ import AVFoundation
 import AVKit
 import SwiftUI
 
-class GifView: UIView {
-    private let playerLayer = AVPlayerLayer()
+struct GifView: UIViewControllerRepresentable{
+    var gifURL : URL
     
-    init(frame: CGRect, url: URL, previewLength:Double) {
-        super.init(frame: frame)
+    func makeUIViewController(context: UIViewControllerRepresentableContext<GifView>) -> AVPlayerViewController {
         
-        // Create the video player using the URL passed in.
-        let player = AVPlayer(url: url)
-        player.volume = 0 // Will play audio if you don't set to zero
-        player.play() // Set to play once created
+        let playerViewController = AVPlayerViewController()
         
-        // Add the player to our Player Layer
-        playerLayer.player = player
-        playerLayer.videoGravity = .resize // Resizes content to fill whole video layer.
-        playerLayer.backgroundColor = UIColor.black.cgColor
-        
-        // Loops gif when it is finished playing
+        let player = AVPlayer(url: gifURL)
+        playerViewController.player = player
+        playerViewController.player?.play()
+        playerViewController.showsPlaybackControls = true
         NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: nil) { (_) in
                     player.seek(to: CMTime.zero)
                     player.play()
         }
         
-
-        layer.addSublayer(playerLayer)
+        return playerViewController
     }
     
-    
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        playerLayer.frame = bounds
-    }
-    
-}
-
-struct VideoView: UIViewRepresentable {
-    
-    var videoURL:URL
-    var previewLength:Double?
-    
-    func makeUIView(context: Context) -> UIView {
-        return GifView(frame: .zero, url: videoURL, previewLength: previewLength ?? 15)
-    }
-    
-    func updateUIView(_ uiView: UIView, context: Context) {
+    func updateUIViewController(_ uiViewController: AVPlayerViewController, context: UIViewControllerRepresentableContext<GifView>) {
         
     }
+    
 }
