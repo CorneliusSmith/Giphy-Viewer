@@ -18,7 +18,7 @@
 		AE9577DC24B7C95C00A818BD /* trendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9577DB24B7C95C00A818BD /* trendingView.swift */; };
 		AE9577DE24B7CFB700A818BD /* giphyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9577DD24B7CFB700A818BD /* giphyAPI.swift */; };
 		AE9577E024B8069F00A818BD /* detailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9577DF24B8069F00A818BD /* detailView.swift */; };
-		AE9577E224B8122B00A818BD /* gifPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9577E124B8122B00A818BD /* gifPlayer.swift */; };
+		AE9577E224B8122B00A818BD /* GifView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9577E124B8122B00A818BD /* GifView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +56,7 @@
 		AE9577DB24B7C95C00A818BD /* trendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trendingView.swift; sourceTree = "<group>"; };
 		AE9577DD24B7CFB700A818BD /* giphyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = giphyAPI.swift; sourceTree = "<group>"; };
 		AE9577DF24B8069F00A818BD /* detailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailView.swift; sourceTree = "<group>"; };
-		AE9577E124B8122B00A818BD /* gifPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gifPlayer.swift; sourceTree = "<group>"; };
+		AE9577E124B8122B00A818BD /* GifView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +110,7 @@
 				AE9577AB24B7C37A00A818BD /* AppDelegate.swift */,
 				AE9577AD24B7C37A00A818BD /* SceneDelegate.swift */,
 				AE9577AF24B7C37A00A818BD /* ContentView.swift */,
-				AE9577E124B8122B00A818BD /* gifPlayer.swift */,
+				AE9577E124B8122B00A818BD /* GifView.swift */,
 				AE9577DB24B7C95C00A818BD /* trendingView.swift */,
 				AE9577DD24B7CFB700A818BD /* giphyAPI.swift */,
 				AE9577DF24B8069F00A818BD /* detailView.swift */,
@@ -279,7 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE9577E224B8122B00A818BD /* gifPlayer.swift in Sources */,
+				AE9577E224B8122B00A818BD /* GifView.swift in Sources */,
 				AE9577AC24B7C37A00A818BD /* AppDelegate.swift in Sources */,
 				AE9577AE24B7C37A00A818BD /* SceneDelegate.swift in Sources */,
 				AE9577B024B7C37A00A818BD /* ContentView.swift in Sources */,

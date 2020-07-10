@@ -12,11 +12,8 @@ import SwiftUI
 
 class GifView: UIView {
     private let playerLayer = AVPlayerLayer()
-    private var previewTimer:Timer?
-    var previewLength:Double
     
     init(frame: CGRect, url: URL, previewLength:Double) {
-        self.previewLength = previewLength
         super.init(frame: frame)
         
         // Create the video player using the URL passed in.
@@ -26,9 +23,10 @@ class GifView: UIView {
         
         // Add the player to our Player Layer
         playerLayer.player = player
-        playerLayer.videoGravity = .resizeAspectFill // Resizes content to fill whole video layer.
+        playerLayer.videoGravity = .resize // Resizes content to fill whole video layer.
         playerLayer.backgroundColor = UIColor.black.cgColor
         
+        // Loops gif when it is finished playing
         NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: nil) { (_) in
                     player.seek(to: CMTime.zero)
                     player.play()
@@ -38,8 +36,9 @@ class GifView: UIView {
         layer.addSublayer(playerLayer)
     }
     
+    
+    
     required init?(coder: NSCoder) {
-        self.previewLength = 15
         super.init(coder: coder)
     }
 
