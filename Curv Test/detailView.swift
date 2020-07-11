@@ -20,16 +20,13 @@ struct detailView: View {
             GifView(gifURL: URL(string: self.gifURL)!)
                     .frame(width: sizeRect.width, height: 400, alignment: .center)
             HStack{
-                Text("Favourite:")
+                Text("Favourite/Unfavourite:")
                     .font(.title)
                 Button(action: {
                     //print(self.gifURL)
                     do {
-                        try URL(string: self.gifURL)!.download(to: .documentDirectory, fileName: self.gifTitle) { url, error in
-                            DispatchQueue.main.async{
-                                self.giphyObject.localURL = url!
-                                //print(self.giphyObject.localURL)
-                            }
+                        try URL(string: self.gifURL)!.download(to: .documentDirectory, fileName: "\(self.gifTitle)") { url, error in
+                                //self.giphyObject.populateFavourites()
                         }
                     } catch {
                         print(error)

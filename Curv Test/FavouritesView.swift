@@ -11,23 +11,26 @@ import SwiftUI
 struct FavouritesView: View {
     @ObservedObject var giphyObject: GiphyApi
     
-    @State var favouritesArray: [String] = []
-    //let path = Bundle.main.resourcePath!
-
-    
-    
+    @State var favouritesArray: [String] = []    
     var body: some View {
         NavigationView{
             
             List{
-                ForEach(self.giphyObject.favouritesArray, id: \.self){favourite in
-                    NavigationLink(destination: detailView(giphyObject: self.giphyObject, gifTitle: favourite, gifURL: "file://\(NSHomeDirectory())/Documents/\(favourite)/".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)){
+                ForEach(self.favouritesArray, id: \.self){favourite in
+                    NavigationLink(destination: detailView(giphyObject: self.giphyObject, gifTitle: favourite, gifURL: "file://\(NSHomeDirectory())/Documents/\(favourite)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)){
                             Text(favourite)
                     }
                 }
             }
-            //GifView(gifURL: self.giphyObject.localURL)
-        //file:///var/mobile/Containers/Data/Application/76F366B4-1D91-455B-BB77-8983FEB1145E/Documents/200w.mp4
+            .onAppear(){
+                self.favouritesArray = []
+                let favourites = FileManager().enumerator(atPath: "\(NSHomeDirectory())/Documents")
+                for favourite in favourites!{
+                    print(favourite as! String)
+                    self.favouritesArray.append(favourite as! String)
+                }
+            }
+            .navigationBarTitle("Favourites")
         }
     }
 }

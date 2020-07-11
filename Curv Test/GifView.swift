@@ -18,8 +18,7 @@ struct GifView: UIViewControllerRepresentable{
         
         let playerViewController = AVPlayerViewController()
         
-        let player = AVPlayer(url: gifURL)
-        print(self.gifURL)
+        let player = AVPlayer(url: self.gifURL)
         playerViewController.player = player
         playerViewController.player?.play()
         playerViewController.showsPlaybackControls = true

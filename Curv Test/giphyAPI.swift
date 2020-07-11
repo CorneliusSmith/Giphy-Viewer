@@ -30,15 +30,6 @@ class GiphyApi : ObservableObject{
     @Published var isFinished: Bool = false
     @Published var doneSearching: Bool = false
     @Published var localURL: URL =  URL(string:"nothing")!
-    @Published var favouritesArray: [String]
-    
-    init(favouritesArray: [String]){
-        self.favouritesArray = favouritesArray
-        let favourites = FileManager().enumerator(atPath: "\(NSHomeDirectory())/Documents")
-        for favourite in favourites!{
-            self.favouritesArray.append(favourite as! String)
-        }
-    }
     
     /**
     A function that sends a request to the Giphy API to get the latest trending gifs and parses the response
@@ -86,7 +77,7 @@ class GiphyApi : ObservableObject{
     
     func getTrendingGifs(){
         self.isFinished = false
-        let url = URL(string: "https://api.giphy.com/v1/gifs/trending?api_key=pAV7WsmKVwCuuLZPS0d3X3180xqW0rma&limit=2&rating=pg-13")! // force unwraps url because we know its a valid unchanging string as an input
+        let url = URL(string: "https://api.giphy.com/v1/gifs/trending?api_key=pAV7WsmKVwCuuLZPS0d3X3180xqW0rma&limit=25&rating=pg-13")! // force unwraps url because we know its a valid unchanging string as an input
     
         let request = URLRequest(url: url)
         let session = URLSession.shared
@@ -137,7 +128,7 @@ class GiphyApi : ObservableObject{
         self.isFinished = false
         self.doneSearching = false
         
-        let url = URL(string: "https://api.giphy.com/v1/gifs/search?api_key=pAV7WsmKVwCuuLZPS0d3X3180xqW0rma&q=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!))&limit=2&offset=0&rating=g&lang=en")! // force unwraps url because we know its a valid string. Also percent encoding allows for searching strings with spaces like "Dance Dance Revolution"
+        let url = URL(string: "https://api.giphy.com/v1/gifs/search?api_key=pAV7WsmKVwCuuLZPS0d3X3180xqW0rma&q=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!))&limit=25&offset=0&rating=g&lang=en")! // force unwraps url because we know its a valid string. Also percent encoding allows for searching strings with spaces like "Dance Dance Revolution"
     
         let request = URLRequest(url: url)
         let session = URLSession.shared
@@ -173,38 +164,33 @@ class GiphyApi : ObservableObject{
         }
         task.resume()
     }
-
-    func downloadGif(){
-        let url = URL(string: "https://media1.giphy.com/media/xT1XGxMBRTedbb5pSw/200w.mp4")!
-        //let directory = try FileManager.default.url(for: directory, in: .userDomainMask, appropriateFor: nil, create: true)
-
-        let task = URLSession.shared.downloadTask(with: url) { localURL, urlResponse, error in
-            if let localURL = localURL {
-                    print(localURL)
-                    DispatchQueue.main.async {
-                        self.localURL = localURL
-                        
-                        print("done")
-                    }
-                }
-        }
-        task.resume()
-    }
-    
-    
 }
 
 extension URL {
+    
+    /**
+    A function that downloads a gif and saves it to the application to persist after the app closes
+    
+    - parameters:
+     - to : A directory to save a gif
+     - fileName: The name to save the gif as
+     - completion : A completion handler that return the destination the gif was saved in, or an error
+    - throws:
+            - An Error if the task is unable to be downloaded/removed from the directory its saved in
+    */
+    
     func download(to directory: FileManager.SearchPathDirectory, fileName: String? = nil, completion: @escaping (URL?, Error?) -> Void) throws {
         let directory = try FileManager.default.url(for: directory, in: .userDomainMask, appropriateFor: nil, create: true)
-        let destination: URL
+        var destination: URL
         
         // creates the destination path for each favourited gif
         if let fileName = fileName {
+            print("File Name: \(fileName)")
             destination = directory
                 .appendingPathComponent(fileName)
-                .appendingPathExtension(self.pathExtension)
-            print(destination)
+            print(destination.lastPathComponent, self.pathExtension)
+    
+            //destination.appendPathExtension(self.pathExtension)
         } else {
             destination = directory
             .appendingPathComponent(lastPathComponent)
@@ -225,7 +211,9 @@ extension URL {
                 return
             }
             do{
+                destination.appendPathExtension(self.pathExtension)
                 try FileManager.default.moveItem(at: location, to: destination)
+                print("Destination: \(destination)")
                 completion(destination, nil)
             }
             catch {

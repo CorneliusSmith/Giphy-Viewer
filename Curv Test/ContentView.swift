@@ -10,7 +10,7 @@ import SwiftUI
 
 
 struct ContentView: View {
-    @ObservedObject var giphyObject = GiphyApi(favouritesArray: [])
+    @ObservedObject var giphyObject = GiphyApi()
     @State var searchString: String = ""
     @State private var selection = 0
     
