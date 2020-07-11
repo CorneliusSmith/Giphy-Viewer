@@ -20,6 +20,8 @@ import UIKit
  # Available Functions
  - getTrendingGifs: A function that sends a request to the Giphy API to get the latest trending gifs
  - getSearchedGifs: A function to get all gifs related to a users search
+ - getMoreTrendingGifs: A function to add to the current Trending gifs
+ - getMoreSearchedGifs: A function to add to the current amount of Searched gifs
   
  */
 
@@ -30,6 +32,8 @@ class GiphyApi : ObservableObject{
     @Published var isFinished: Bool = false
     @Published var doneSearching: Bool = false
     @Published var localURL: URL =  URL(string:"nothing")!
+    @Published var lastTrendingGif: Int = 25
+    @Published var lastSearchedGif: Int = 25
     
     /**
     A function that sends a request to the Giphy API to get the latest trending gifs and parses the response
@@ -58,13 +62,6 @@ class GiphyApi : ObservableObject{
         var id: String?
     }
     
-//    struct  Images:Decodable{
-//        var fixed_width : [FixedWidth]
-//    }
-//
-//    struct FixedWidth:Decodable {
-//        var mp4:String
-//    }
     
     /**
      A function that sends a request to the Giphy API to get the latest trending gifs and parses the response
@@ -72,7 +69,7 @@ class GiphyApi : ObservableObject{
      - parameters:
         - None
      - throws:
-     An error when the JSON fails to be decoded on line 72
+     An error when the JSON fails to be decoded
      */
     
     func getTrendingGifs(){
@@ -120,7 +117,7 @@ class GiphyApi : ObservableObject{
          - parameters:
             - query: A string to search the giphy api with
          - throws:
-         An error when the JSON fails to be decoded on line 72
+         An error when the JSON fails to be decoded
          */
         
     func getSearchedGifs(query: String){
@@ -161,6 +158,99 @@ class GiphyApi : ObservableObject{
                     return
                 }
             }
+        }
+        task.resume()
+    }
+    
+    /**
+    A function that sends a request to the Giphy API to get more gifs afteers a certain offset and adds it to the Trending Response
+    
+    - parameters:
+    - throws:
+    An error when the JSON fails to be decoded
+    */
+    func getMoreTrendingGifs(){
+        
+        let url = URL(string: "https://api.giphy.com/v1/gifs/trending?api_key=pAV7WsmKVwCuuLZPS0d3X3180xqW0rma&limit=25&rating=pg-13&offset=\(self.lastTrendingGif)")! // force unwraps url because we know its a valid unchanging string as an input
+    
+        let request = URLRequest(url: url)
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { data, response, error in
+            if error != nil || data == nil {
+                print("Client error!")
+                return
+            }
+
+            if let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode){} else{
+                print("Server Error")
+                return
+            }
+
+            guard let data = data else{
+                print("Error Getting Returned Data")
+                return
+            }
+            
+            DispatchQueue.main.async{
+                do{
+                    let moreTrendingResponses = try JSONDecoder().decode(TrendingResponse.self, from: data)
+                    self.trendingResponse.data.append(contentsOf: moreTrendingResponses.data)
+                    self.lastTrendingGif += 25
+                }
+                catch{
+                    print(error)
+                    return
+                }
+            }
+
+        }
+        task.resume()
+    }
+    
+    /**
+    A function that sends a request to the Giphy API to get more gifs related to a users search after a certain offset and adds it to the Trending Response
+    
+    - parameters:
+       - query: A string to search the giphy api with
+    - throws:
+    An error when the JSON fails to be decoded
+    */
+    
+    func getMoreSearchedGifs(query: String){
+        
+        // force unwraps url because we know its a valid unchanging string as an input
+        let url = URL(string: "https://api.giphy.com/v1/gifs/search?api_key=pAV7WsmKVwCuuLZPS0d3X3180xqW0rma&q=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!))&limit=25&offset=\(self.lastSearchedGif)&rating=g&lang=en")!
+    
+        let request = URLRequest(url: url)
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { data, response, error in
+            if error != nil || data == nil {
+                print("Client error!")
+                return
+            }
+
+            if let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode){} else{
+                print("Server Error")
+                return
+            }
+
+            guard let data = data else{
+                print("Error Getting Returned Data")
+                return
+            }
+            
+            DispatchQueue.main.async{
+                do{
+                    let moreTrendingResponses = try JSONDecoder().decode(TrendingResponse.self, from: data)
+                    self.trendingResponse.data.append(contentsOf: moreTrendingResponses.data)
+                    self.lastSearchedGif += 25
+                }
+                catch{
+                    print(error)
+                    return
+                }
+            }
+
         }
         task.resume()
     }

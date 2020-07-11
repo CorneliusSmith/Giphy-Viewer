@@ -16,7 +16,6 @@ struct SearchView: View {
         VStack{
             HStack{
                 TextField("Search Gif",text: self.$searchString)
-                    .frame(width: 300)
                     .padding()
                     .padding(.trailing, 10)
                     .background(Color(.systemGray6))
@@ -26,10 +25,14 @@ struct SearchView: View {
                     
                     //gets searched gifs or trending gifs based on whats in the search bar
                     if self.searchString != ""{
+                        self.giphyObject.lastSearchedGif = 25 //resets the search offset for new searches
                         self.giphyObject.getSearchedGifs(query: self.searchString)
                     }
                     else{
+                        // repopulates trending gifs and resets trending offset afteer search
+                        self.giphyObject.doneSearching = false
                         self.giphyObject.getTrendingGifs()
+                        self.giphyObject.lastTrendingGif = 25
                     }
                     
                     //code to hide keyboard on tap of the search button
@@ -39,9 +42,7 @@ struct SearchView: View {
                     Image(systemName: "magnifyingglass.circle.fill")
                     .resizable()
                     .frame(width: 50, height: 50)
-                    
                 }
-                Spacer()
             }.padding()
         }
     }

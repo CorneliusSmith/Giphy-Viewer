@@ -31,7 +31,6 @@ struct DetailView: View {
                     } catch {
                         print(error)
                     }
-                    //self.giphyObject.downloadGif()
                 }){
                     Image(systemName: "star.fill")
                     .resizable()
