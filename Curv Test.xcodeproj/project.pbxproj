@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE53488124B9F74A004E8DE6 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE53488024B9F74A004E8DE6 /* CollectionViewCell.swift */; };
+		AE53488324B9F821004E8DE6 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE53488224B9F821004E8DE6 /* CollectionView.swift */; };
+		AE53488524B9F869004E8DE6 /* CollecionViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE53488424B9F869004E8DE6 /* CollecionViewCoordinator.swift */; };
 		AE9577AC24B7C37A00A818BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9577AB24B7C37A00A818BD /* AppDelegate.swift */; };
 		AE9577AE24B7C37A00A818BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9577AD24B7C37A00A818BD /* SceneDelegate.swift */; };
 		AE9577B024B7C37A00A818BD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9577AF24B7C37A00A818BD /* ContentView.swift */; };
@@ -41,6 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AE53488024B9F74A004E8DE6 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		AE53488224B9F821004E8DE6 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
+		AE53488424B9F869004E8DE6 /* CollecionViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollecionViewCoordinator.swift; sourceTree = "<group>"; };
 		AE9577A824B7C37A00A818BD /* Curv Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Curv Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9577AB24B7C37A00A818BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE9577AD24B7C37A00A818BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +117,9 @@
 		AE9577AA24B7C37A00A818BD /* Curv Test */ = {
 			isa = PBXGroup;
 			children = (
+				AE53488024B9F74A004E8DE6 /* CollectionViewCell.swift */,
+				AE53488224B9F821004E8DE6 /* CollectionView.swift */,
+				AE53488424B9F869004E8DE6 /* CollecionViewCoordinator.swift */,
 				AE9577AB24B7C37A00A818BD /* AppDelegate.swift */,
 				AE9577AD24B7C37A00A818BD /* SceneDelegate.swift */,
 				AE9577AF24B7C37A00A818BD /* ContentView.swift */,
@@ -285,6 +294,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE53488524B9F869004E8DE6 /* CollecionViewCoordinator.swift in Sources */,
+				AE53488124B9F74A004E8DE6 /* CollectionViewCell.swift in Sources */,
 				AE9577E224B8122B00A818BD /* GifView.swift in Sources */,
 				AE95782224B90CD500A818BD /* FavouritesView.swift in Sources */,
 				AE9577AC24B7C37A00A818BD /* AppDelegate.swift in Sources */,
@@ -293,6 +304,7 @@
 				AE9577E424B8E78D00A818BD /* SearchView.swift in Sources */,
 				AE9577E024B8069F00A818BD /* DetailView.swift in Sources */,
 				AE9577DC24B7C95C00A818BD /* TrendingView.swift in Sources */,
+				AE53488324B9F821004E8DE6 /* CollectionView.swift in Sources */,
 				AE9577DE24B7CFB700A818BD /* GiphyAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

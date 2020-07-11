@@ -13,6 +13,7 @@ struct ContentView: View {
     @ObservedObject var giphyObject = GiphyApi()
     @State var searchString: String = ""
     @State private var selection = 0
+    var data = [Int](repeating: .random(in: 1...10), count: 15)
     
     
     var body: some View {
@@ -25,8 +26,7 @@ struct ContentView: View {
                     }
                 }
                 .tag(0)
-            
-            FavouritesView(giphyObject: self.giphyObject)
+            FavouritesView(giphyObject: self.giphyObject, data: self.data)
                 .tabItem {
                     VStack {
                         Image(systemName: "star.fill")

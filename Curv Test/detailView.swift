@@ -17,7 +17,7 @@ struct DetailView: View {
     
     var body: some View {
         VStack{
-            GifView(gifURL: URL(string: self.gifURL)!)
+            GifView(gifURL: URL(string: self.gifURL)!, showPlayerControls: true)
                     .frame(width: sizeRect.width, height: 400, alignment: .center)
             HStack{
                 Text("Favourite/Unfavourite:")

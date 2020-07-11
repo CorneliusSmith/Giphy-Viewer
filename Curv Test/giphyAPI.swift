@@ -253,8 +253,7 @@ class GiphyApi : ObservableObject{
 }
 
 extension URL {
-    
-    
+
     /// A function that downloads a gif and saves it to the application to persist after the app closes
     /// - Parameters:
     ///   - directory: A directory to save a gif
