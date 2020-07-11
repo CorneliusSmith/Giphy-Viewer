@@ -123,7 +123,7 @@ class GiphyApi : ObservableObject{
         self.isFinished = false
         self.doneSearching = false
         
-        let url = URL(string: "https://api.giphy.com/v1/gifs/search?api_key=pAV7WsmKVwCuuLZPS0d3X3180xqW0rma&q=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!))&limit=25&offset=0&rating=g&lang=en")! // force unwraps url because we know its a valid string. Also percent encoding allows for searching strings with spaces like "Dance Dance Revolution"
+        let url = URL(string: "https://api.giphy.com/v1/gifs/search?api_key=pAV7WsmKVwCuuLZPS0d3X3180xqW0rma&q=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!))&limit=25&offset=0&rating=g&lang=en")! /// force unwraps url because we know its a valid string. Also percent encoding allows for searching strings with spaces like "Dance Dance Revolution"
     
         let request = URLRequest(url: url)
         let session = URLSession.shared
@@ -146,10 +146,8 @@ class GiphyApi : ObservableObject{
             DispatchQueue.main.async{
                 do{
                     self.trendingResponse = try JSONDecoder().decode(TrendingResponse.self, from: data)
-                    //print(self.trendingResponse)
                     self.doneSearching = true
                     self.isFinished = true
-                    //self.trendingResponse.id = self.trendingResponse.data.count
                 }
                 catch{
                     print(error)
@@ -169,7 +167,7 @@ class GiphyApi : ObservableObject{
      */
     func getMoreTrendingGifs(){
         
-        let url = URL(string: "https://api.giphy.com/v1/gifs/trending?api_key=pAV7WsmKVwCuuLZPS0d3X3180xqW0rma&limit=25&rating=pg-13&offset=\(self.lastTrendingGif)")! // force unwraps url because we know its a valid unchanging string as an input
+        let url = URL(string: "https://api.giphy.com/v1/gifs/trending?api_key=pAV7WsmKVwCuuLZPS0d3X3180xqW0rma&limit=25&rating=pg-13&offset=\(self.lastTrendingGif)")! /// force unwraps url because we know its a valid unchanging string as an input
     
         let request = URLRequest(url: url)
         let session = URLSession.shared
@@ -216,7 +214,7 @@ class GiphyApi : ObservableObject{
     
     func getMoreSearchedGifs(query: String){
         
-        // force unwraps url because we know its a valid unchanging string as an input
+        /// force unwraps url because we know its a valid unchanging string as an input
         let url = URL(string: "https://api.giphy.com/v1/gifs/search?api_key=pAV7WsmKVwCuuLZPS0d3X3180xqW0rma&q=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!))&limit=25&offset=\(self.lastSearchedGif)&rating=g&lang=en")!
     
         let request = URLRequest(url: url)
@@ -268,7 +266,7 @@ extension URL {
         let directory = try FileManager.default.url(for: directory, in: .userDomainMask, appropriateFor: nil, create: true)
         var destination: URL
         
-        // creates the destination path for each favourited gif
+        /// Creates the destination path for each favourited gif
         if let fileName = fileName {
             print("File Name: \(fileName)")
             destination = directory
@@ -279,7 +277,7 @@ extension URL {
             .appendingPathComponent(lastPathComponent)
         }
         
-        // if file exists i.e is already in favourites delete it
+        /// If file exists i.e is already in favourites delete it
         if (FileManager.default.fileExists(atPath: destination.path)) { completion(destination, nil)
             if FileManager.default.fileExists(atPath: destination.path) {
                 try FileManager.default.removeItem(at: destination)
@@ -287,7 +285,7 @@ extension URL {
             return
         }
         
-        //downloads the gif and moves it to the destination directory
+        ///Downloads the gif and moves it to the destination directory
         URLSession.shared.downloadTask(with: self) { location, _, error in
             guard let location = location else {
                 completion(nil, error)

@@ -23,19 +23,19 @@ struct SearchView: View {
                 Spacer()
                 Button(action: {
                     
-                    //gets searched gifs or trending gifs based on whats in the search bar
+                    /// Gets searched gifs or trending gifs based on whats in the search bar
                     if self.searchString != ""{
-                        self.giphyObject.lastSearchedGif = 25 //resets the search offset for new searches
+                        self.giphyObject.lastSearchedGif = 25 /// Resets the search offset for new searches
                         self.giphyObject.getSearchedGifs(query: self.searchString)
                     }
                     else{
-                        // repopulates trending gifs and resets trending offset afteer search
+                        /// Repopulates trending gifs and resets trending offset afteer search
                         self.giphyObject.doneSearching = false
                         self.giphyObject.getTrendingGifs()
                         self.giphyObject.lastTrendingGif = 25
                     }
                     
-                    //code to hide keyboard on tap of the search button
+                    /// Code to hide keyboard on tap of the search button
                     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                 })
                 {

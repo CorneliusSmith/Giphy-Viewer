@@ -23,7 +23,6 @@ struct DetailView: View {
                 Text("Favourite/Unfavourite:")
                     .font(.title)
                 Button(action: {
-                    //print(self.gifURL)
                     do {
                         try URL(string: self.gifURL)!.download(to: .documentDirectory, fileName: "\(self.gifTitle)") { url, error in
                                 //self.giphyObject.populateFavourites()

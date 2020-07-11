@@ -27,13 +27,13 @@ struct ContentView: View {
                 .tag(0)
             
             FavouritesView(giphyObject: self.giphyObject)
-                    .tabItem {
-                        VStack {
-                            Image(systemName: "star.fill")
-                            Text("Favourites")
-                        }
+                .tabItem {
+                    VStack {
+                        Image(systemName: "star.fill")
+                        Text("Favourites")
                     }
-                    .tag(1)
+                }
+                .tag(1)
         }
     }
 }

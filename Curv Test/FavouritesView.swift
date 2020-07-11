@@ -18,7 +18,9 @@ struct FavouritesView: View {
             
             List{
                 if (!self.populatingFavourites){
-                    // reversed favouritesArray so favourites appear in mostly the order they were favourited
+                    /// Reversed favouritesArray so favourites appear in mostly the order they were favourited.
+                    /// Mostly because the getFavourites function doesnt filter the files by creation date or anything so they are populated randomly,
+                    /// with most of the order preserved.
                     ForEach(self.favouritesArray.reversed(), id: \.self){favourite in
                         NavigationLink(destination: DetailView(giphyObject: self.giphyObject, gifTitle: favourite, gifURL: "file://\(NSHomeDirectory())/Documents/\(favourite)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)){
                                 Text(favourite)
@@ -27,15 +29,21 @@ struct FavouritesView: View {
                 }
             }
             .onAppear(){
-                self.favouritesArray = []
-                let favourites = FileManager().enumerator(atPath: "\(NSHomeDirectory())/Documents")
-                for favourite in favourites!{
-                    self.favouritesArray.append(favourite as! String)
-                }
-                self.populatingFavourites = false
+                self.getFavourites()
             }
             .navigationBarTitle("Favourites")
         }
+    }
+    
+    /// A function to populate the favourites array with the saved gifs in a users Documents folder
+    func getFavourites(){
+        self.favouritesArray = []
+        let favourites = FileManager().enumerator(atPath: "\(NSHomeDirectory())/Documents")
+        for favourite in favourites!{
+            self.favouritesArray.append(favourite as! String)
+        }
+        self.populatingFavourites = false
+        
     }
 }
 

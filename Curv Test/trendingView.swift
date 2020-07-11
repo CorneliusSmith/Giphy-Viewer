@@ -19,20 +19,21 @@ struct TrendingView: View {
                 SearchView(giphyObject: self.giphyObject, searchString: self.$searchString)
                 if self.giphyObject.isFinished{
                     List{
-                            // populates list with latest trending gifs
+                            /// Populates list with latest trending gifs
                             if  !self.giphyObject.doneSearching{
                                 ForEach(self.giphyObject.trendingResponse.data, id: \.self){trendingGif in
                                     NavigationLink(destination: DetailView(giphyObject: self.giphyObject, gifTitle: trendingGif.title!, gifURL: "https://media1.giphy.com/media/\(trendingGif.id!)/200w.mp4")){
                                         Text(trendingGif.title!)
                                     }.onAppear(){
                                         let lastItem = self.giphyObject.trendingResponse.data.last?.title
+                                        /// If the end of the trendingGifs is reached then load more and add it to the list
                                         if trendingGif.title == lastItem{
                                             self.giphyObject.getMoreTrendingGifs()
                                         }
                                     }
                                 }
                             }
-                            // populates list with gifs from search results
+                            /// Populates list with gifs from search results
                             else{
                             ForEach(self.giphyObject.trendingResponse.data, id: \.self){trendingGif in
                                 NavigationLink(destination: DetailView(giphyObject: self.giphyObject, gifTitle: trendingGif.title!, gifURL: "https://media1.giphy.com/media/\(trendingGif.id!)/200w.mp4")){
@@ -40,6 +41,7 @@ struct TrendingView: View {
                                 }
                                 .onAppear(){
                                     let lastItem = self.giphyObject.trendingResponse.data.last?.title
+                                    /// If the end of the searchedGifs is reached then load more and add it to the list
                                     if trendingGif.title == lastItem{
                                         self.giphyObject.getMoreSearchedGifs(query: self.searchString)
                                     }
@@ -48,7 +50,7 @@ struct TrendingView: View {
                         }
                     }
                 }
-                // creates indicatior to tell user when searches are loading
+                /// Creates indicatior to tell user when searches are loading
                 else{
                     ZStack{
                         RoundedRectangle(cornerRadius: 16)
