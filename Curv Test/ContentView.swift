@@ -17,7 +17,7 @@ struct ContentView: View {
     
     var body: some View {
         TabView(selection: $selection){
-            trendingView(giphyObject: self.giphyObject, searchString: self.$searchString)
+            TrendingView(giphyObject: self.giphyObject, searchString: self.$searchString)
                 .tabItem {
                     VStack {
                         Image(systemName: "circle.fill")

@@ -11,14 +11,18 @@ import SwiftUI
 struct FavouritesView: View {
     @ObservedObject var giphyObject: GiphyApi
     
-    @State var favouritesArray: [String] = []    
+    @State var favouritesArray: [String] = []
+    @State var populatingFavourites: Bool = true
     var body: some View {
         NavigationView{
             
             List{
-                ForEach(self.favouritesArray, id: \.self){favourite in
-                    NavigationLink(destination: detailView(giphyObject: self.giphyObject, gifTitle: favourite, gifURL: "file://\(NSHomeDirectory())/Documents/\(favourite)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)){
-                            Text(favourite)
+                if (!self.populatingFavourites){
+                    // reversed favouritesArray so favourites appear in mostly the order they were favourited
+                    ForEach(self.favouritesArray.reversed(), id: \.self){favourite in
+                        NavigationLink(destination: DetailView(giphyObject: self.giphyObject, gifTitle: favourite, gifURL: "file://\(NSHomeDirectory())/Documents/\(favourite)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)){
+                                Text(favourite)
+                        }
                     }
                 }
             }
@@ -29,6 +33,7 @@ struct FavouritesView: View {
                     print(favourite as! String)
                     self.favouritesArray.append(favourite as! String)
                 }
+                self.populatingFavourites = false
             }
             .navigationBarTitle("Favourites")
         }

@@ -15,9 +15,9 @@
 		AE9577B824B7C37F00A818BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE9577B624B7C37F00A818BD /* LaunchScreen.storyboard */; };
 		AE9577C324B7C37F00A818BD /* Curv_TestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9577C224B7C37F00A818BD /* Curv_TestTests.swift */; };
 		AE9577CE24B7C37F00A818BD /* Curv_TestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9577CD24B7C37F00A818BD /* Curv_TestUITests.swift */; };
-		AE9577DC24B7C95C00A818BD /* trendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9577DB24B7C95C00A818BD /* trendingView.swift */; };
+		AE9577DC24B7C95C00A818BD /* TrendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9577DB24B7C95C00A818BD /* TrendingView.swift */; };
 		AE9577DE24B7CFB700A818BD /* giphyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9577DD24B7CFB700A818BD /* giphyAPI.swift */; };
-		AE9577E024B8069F00A818BD /* detailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9577DF24B8069F00A818BD /* detailView.swift */; };
+		AE9577E024B8069F00A818BD /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9577DF24B8069F00A818BD /* DetailView.swift */; };
 		AE9577E224B8122B00A818BD /* GifView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9577E124B8122B00A818BD /* GifView.swift */; };
 		AE9577E424B8E78D00A818BD /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9577E324B8E78D00A818BD /* SearchView.swift */; };
 		AE95782224B90CD500A818BD /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE95782124B90CD500A818BD /* FavouritesView.swift */; };
@@ -55,9 +55,9 @@
 		AE9577C924B7C37F00A818BD /* Curv TestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Curv TestUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9577CD24B7C37F00A818BD /* Curv_TestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curv_TestUITests.swift; sourceTree = "<group>"; };
 		AE9577CF24B7C37F00A818BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AE9577DB24B7C95C00A818BD /* trendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trendingView.swift; sourceTree = "<group>"; };
+		AE9577DB24B7C95C00A818BD /* TrendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingView.swift; sourceTree = "<group>"; };
 		AE9577DD24B7CFB700A818BD /* giphyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = giphyAPI.swift; sourceTree = "<group>"; };
-		AE9577DF24B8069F00A818BD /* detailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailView.swift; sourceTree = "<group>"; };
+		AE9577DF24B8069F00A818BD /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		AE9577E124B8122B00A818BD /* GifView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifView.swift; sourceTree = "<group>"; };
 		AE9577E324B8E78D00A818BD /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		AE95782124B90CD500A818BD /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
@@ -117,9 +117,9 @@
 				AE95782124B90CD500A818BD /* FavouritesView.swift */,
 				AE9577E324B8E78D00A818BD /* SearchView.swift */,
 				AE9577E124B8122B00A818BD /* GifView.swift */,
-				AE9577DB24B7C95C00A818BD /* trendingView.swift */,
+				AE9577DB24B7C95C00A818BD /* TrendingView.swift */,
 				AE9577DD24B7CFB700A818BD /* giphyAPI.swift */,
-				AE9577DF24B8069F00A818BD /* detailView.swift */,
+				AE9577DF24B8069F00A818BD /* DetailView.swift */,
 				AE9577B124B7C37F00A818BD /* Assets.xcassets */,
 				AE9577B624B7C37F00A818BD /* LaunchScreen.storyboard */,
 				AE9577B924B7C37F00A818BD /* Info.plist */,
@@ -291,8 +291,8 @@
 				AE9577AE24B7C37A00A818BD /* SceneDelegate.swift in Sources */,
 				AE9577B024B7C37A00A818BD /* ContentView.swift in Sources */,
 				AE9577E424B8E78D00A818BD /* SearchView.swift in Sources */,
-				AE9577E024B8069F00A818BD /* detailView.swift in Sources */,
-				AE9577DC24B7C95C00A818BD /* trendingView.swift in Sources */,
+				AE9577E024B8069F00A818BD /* DetailView.swift in Sources */,
+				AE9577DC24B7C95C00A818BD /* TrendingView.swift in Sources */,
 				AE9577DE24B7CFB700A818BD /* giphyAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,7 +9,7 @@
 import SwiftUI
 import UIKit
 
-struct detailView: View {
+struct DetailView: View {
     @ObservedObject var giphyObject: GiphyApi
     var gifTitle: String
     var gifURL: String
