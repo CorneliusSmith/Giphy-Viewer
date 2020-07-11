@@ -30,7 +30,6 @@ struct FavouritesView: View {
                 self.favouritesArray = []
                 let favourites = FileManager().enumerator(atPath: "\(NSHomeDirectory())/Documents")
                 for favourite in favourites!{
-                    print(favourite as! String)
                     self.favouritesArray.append(favourite as! String)
                 }
                 self.populatingFavourites = false

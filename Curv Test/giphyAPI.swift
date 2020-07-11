@@ -36,12 +36,12 @@ class GiphyApi : ObservableObject{
     @Published var lastSearchedGif: Int = 25
     
     /**
-    A function that sends a request to the Giphy API to get the latest trending gifs and parses the response
-    
-    # Variables:
+     A function that sends a request to the Giphy API to get the latest trending gifs and parses the response
+     
+     # Variables:
      - data: An array of TrendingData structs
      
-    */
+     */
     struct TrendingResponse:Decodable{
         var data: [TrendingData]
     }
@@ -66,10 +66,8 @@ class GiphyApi : ObservableObject{
     /**
      A function that sends a request to the Giphy API to get the latest trending gifs and parses the response
      
-     - parameters:
-        - None
      - throws:
-     An error when the JSON fails to be decoded
+        An error when the JSON fails to be decoded
      */
     
     func getTrendingGifs(){
@@ -163,12 +161,12 @@ class GiphyApi : ObservableObject{
     }
     
     /**
-    A function that sends a request to the Giphy API to get more gifs afteers a certain offset and adds it to the Trending Response
-    
-    - parameters:
-    - throws:
-    An error when the JSON fails to be decoded
-    */
+     A function that sends a request to the Giphy API to get more gifs afteers a certain offset and adds it to the Trending Response
+     
+     - parameters:
+     - throws:
+     An error when the JSON fails to be decoded
+     */
     func getMoreTrendingGifs(){
         
         let url = URL(string: "https://api.giphy.com/v1/gifs/trending?api_key=pAV7WsmKVwCuuLZPS0d3X3180xqW0rma&limit=25&rating=pg-13&offset=\(self.lastTrendingGif)")! // force unwraps url because we know its a valid unchanging string as an input
@@ -258,16 +256,13 @@ class GiphyApi : ObservableObject{
 
 extension URL {
     
-    /**
-    A function that downloads a gif and saves it to the application to persist after the app closes
     
-    - parameters:
-     - to : A directory to save a gif
-     - fileName: The name to save the gif as
-     - completion : A completion handler that return the destination the gif was saved in, or an error
-    - throws:
-            - An Error if the task is unable to be downloaded/removed from the directory its saved in
-    */
+    /// A function that downloads a gif and saves it to the application to persist after the app closes
+    /// - Parameters:
+    ///   - directory: A directory to save a gif
+    ///   - fileName: The name to save the gif as
+    ///   - completion: A completion handler that return the destination the gif was saved in, or an error
+    /// - Throws: An Error if the task is unable to be downloaded/removed from the directory its saved in
     
     func download(to directory: FileManager.SearchPathDirectory, fileName: String? = nil, completion: @escaping (URL?, Error?) -> Void) throws {
         let directory = try FileManager.default.url(for: directory, in: .userDomainMask, appropriateFor: nil, create: true)
@@ -279,8 +274,6 @@ extension URL {
             destination = directory
                 .appendingPathComponent(fileName)
             print(destination.lastPathComponent, self.pathExtension)
-    
-            //destination.appendPathExtension(self.pathExtension)
         } else {
             destination = directory
             .appendingPathComponent(lastPathComponent)

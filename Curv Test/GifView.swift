@@ -13,21 +13,19 @@ import SwiftUI
 struct GifView: UIViewControllerRepresentable{
     var gifURL : URL
     
-    // creates the view controller for the player to play gifs
+    /// creates the view controller for the player to play gifs
     func makeUIViewController(context: UIViewControllerRepresentableContext<GifView>) -> AVPlayerViewController {
         
         let playerViewController = AVPlayerViewController()
         
+        /// creates an AVPlayer and sets it to autoplay when it's presented
         let player = AVPlayer(url: self.gifURL)
         playerViewController.player = player
         playerViewController.player?.play()
         playerViewController.showsPlaybackControls = true
         
-        // when the end of the gif is reeached, seek pack to the start to loop it
-        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: nil) { (_) in
-                    player.seek(to: CMTime.zero)
-                    player.play()
-        }
+        /// when the end of the gif is reached, seek back to the start to loop it
+        self.loopGif(player: player)
         
         return playerViewController
     }
@@ -35,4 +33,14 @@ struct GifView: UIViewControllerRepresentable{
     func updateUIViewController(_ uiViewController: AVPlayerViewController, context: UIViewControllerRepresentableContext<GifView>) {
     }
     
+    
+    /// A function that made to loop a gif once its played for its entire length
+    /// - Parameter player: The AVPlayer that will play the gif meant to be looper
+    
+    func loopGif(player: AVPlayer){
+        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: nil) { (_) in
+                    player.seek(to: CMTime.zero)
+                    player.play()
+        }
+    }
 }
