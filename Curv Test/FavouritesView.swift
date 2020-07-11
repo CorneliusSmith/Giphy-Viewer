@@ -72,10 +72,14 @@ public struct CollectionView<CellType: UICollectionViewCell & Configurable>: UIV
     }
     
     
-    /// Reloads the collection view when needed
-    /// - Parameters:
-    ///   - uiView: The CollectionView to be reloaded
-    ///   - context: The coordinator to carry out the update
+    /**
+     Reloads the collection view when needed
+     
+     - Parameters:
+       - uiView: The CollectionView to be reloaded
+       - context: The coordinator to carry out the update
+     
+     */
     public func updateUIView(_ uiView: GenericCollectionView<CellType>, context: Context) {
         uiView.reloadData()
     }

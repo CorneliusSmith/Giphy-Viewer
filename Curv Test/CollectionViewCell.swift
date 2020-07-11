@@ -51,9 +51,14 @@ public class CollectionViewCell<DataType: CustomStringConvertible>: UICollection
     }
     
     
-    /// For each favourited gif generate a GifView for it and make that the rootView of the collectionView
-    /// - Parameters:
-    ///   - data: The data passesd to the cell from the CollectionView with a sting called description containign the name of a favourited gif
+    /**
+     For each favourited gif generate a GifView for it and make that the rootView of the collectionView
+     
+     - Parameters:
+       - data: The data passesd to the cell from the CollectionView with a sting called description containign the name of a favourited gif
+     
+     */
+    
     public func configure(using data: DataType) {
         let favouriteURL = "file://\(NSHomeDirectory())/Documents/\(data.description)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         customView.rootView = GifView(gifURL: URL(string: favouriteURL)!, showPlayerControls: false)

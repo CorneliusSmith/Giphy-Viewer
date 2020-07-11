@@ -35,6 +35,8 @@ class GiphyApi : ObservableObject{
     @Published var lastTrendingGif: Int = 25
     @Published var lastSearchedGif: Int = 25
     
+     // MARK: - Structs
+    
     /**
      A function that sends a request to the Giphy API to get the latest trending gifs and parses the response
      
@@ -53,6 +55,7 @@ class GiphyApi : ObservableObject{
      - type: A string that says the type of media returned from Giphy (almost always a .gif)
      - url: The Giphy url liking to the specific gif
      - title: The title of the returned gif
+     - id: An identifier for each TrendingResponse.data member
      
     */
     struct TrendingData:Decodable, Hashable{
@@ -62,7 +65,7 @@ class GiphyApi : ObservableObject{
         var id: String?
     }
     
-    
+     // MARK: - Functions
     /**
      A function that sends a request to the Giphy API to get the latest trending gifs and parses the response
      
@@ -116,7 +119,7 @@ class GiphyApi : ObservableObject{
             - query: A string to search the giphy api with
          - throws:
          An error when the JSON fails to be decoded
-         */
+        */
         
     func getSearchedGifs(query: String){
         
@@ -252,14 +255,21 @@ class GiphyApi : ObservableObject{
     }
 }
 
+ // MARK: - Extension to URL to handle download
+
 extension URL {
 
-    /// A function that downloads a gif and saves it to the application to persist after the app closes
-    /// - Parameters:
-    ///   - directory: A directory to save a gif
-    ///   - fileName: The name to save the gif as
-    ///   - completion: A completion handler that return the destination the gif was saved in, or an error
-    /// - Throws: An Error if the task is unable to be downloaded/removed from the directory its saved in
+    /**
+     A function that downloads a gif and saves it to the application to persist after the app closes
+     
+     - Parameters:
+      - directory: A directory to save a gif
+        - fileName: The name to save the gif as
+        - completion: A completion handler that return the destination the gif was saved in, or an error
+     
+     - Throws: An Error if the task is unable to be downloaded/removed from the directory its saved in
+     
+     */
     
     func download(to directory: FileManager.SearchPathDirectory, fileName: String? = nil, completion: @escaping (URL?, Error?) -> Void) throws {
         let directory = try FileManager.default.url(for: directory, in: .userDomainMask, appropriateFor: nil, create: true)

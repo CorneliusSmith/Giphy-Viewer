@@ -10,25 +10,33 @@ import Foundation
 import UIKit
 import SwiftUI
 
-/// The coordinator for the collection view
-/// - Parameters:
-///   - items: An array of datatypes that specifies what each cell is comprised of
-///   - favouritesArray: An array filled with all favourited gifs, to populate the collection view
+/**
+ The coordinator for the collection view
+ 
+ - Parameters:
+   - items: An array of datatypes that specifies what each cell is comprised of
+   - favouritesArray: An array filled with all favourited gifs, to populate the collection view
+ */
 
 public class CollectionViewCoordinator<CellType: UICollectionViewCell & Configurable>: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     @Binding private var items: [CellType.DataType]
     @Binding public var favouritesArray: [String]
     
+    // MARK: - Coordinator
     
     public init(_ items: Binding<[CellType.DataType]>, _ favouritesArray: Binding<[String]>) {
         self._favouritesArray = favouritesArray
         self._items = items
     }
     
-    /// Tells the CollectionView how many cells are needed to be displayed on screen
-    /// - Parameters:
-    ///   - items: An array of datatypes that specifies what each cell is comprised of
-    ///   - favouritesArray: An array filled with all favourited gifs, to populate the collection view
+    /**
+     Tells the CollectionView how many cells are needed to be displayed on screen
+     
+     - Parameters:
+       - items: An array of datatypes that specifies what each cell is comprised of
+       - favouritesArray: An array filled with all favourited gifs, to populate the collection view
+     
+     */
 
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
@@ -49,6 +57,15 @@ public class CollectionViewCoordinator<CellType: UICollectionViewCell & Configur
         return .init(width: dimension, height: dimension)
     }
     
+    
+
+    /// Adds padding to all sides of the CollectionView
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        .init(top: 5, left: 5, bottom: 5, right: 5)
+    }
+    
+    // MARK: - Context Menu
+    
     /// On long press a context menu is created on the selected cell
     
     public func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
@@ -56,18 +73,17 @@ public class CollectionViewCoordinator<CellType: UICollectionViewCell & Configur
             return self.makeContextMenu(indexPath: indexPath, collectionView)
         })
     }
-
-    /// Adds padding to all sides of the CollectionView
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        .init(top: 5, left: 5, bottom: 5, right: 5)
-    }
     
-    
-    /// Makes the context menu to display a fun message for the bonus portion of this task when it is requested by the CollectionView
-    /// - Parameters:
-    ///   - indexPath: the path to the selected cell so the context menu can be overlaid over it
-    ///   - collectionView: The CollectionView to call the menu on top of
-    /// # Note auto layout bug cause by calling the context menu in this version of Swift  https://github.com/apptekstudios/ASCollectionView/issues/77
+    /**
+     Makes the context menu to display a fun message for the bonus portion of this task when it is requested by the CollectionView
+     
+    - Parameters:
+       - indexPath: the path to the selected cell so the context menu can be overlaid over it
+       - collectionView: The CollectionView to call the menu on top of
+     
+     # Note auto layout bug cause by calling the context menu in this version of Swift
+        https://github.com/apptekstudios/ASCollectionView/issues/77
+     */
     func makeContextMenu(indexPath: IndexPath, _ collectionView: UICollectionView) -> UIMenu {
     
         let Message = UIAction(title: "Hi from the context menu", image: UIImage(systemName: "star.fill")) { action in
