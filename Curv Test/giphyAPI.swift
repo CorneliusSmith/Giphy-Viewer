@@ -19,7 +19,7 @@ import UIKit
  
  # Available Functions
  - getTrendingGifs: A function that sends a request to the Giphy API to get the latest trending gifs
- - getSearchedGifs: A function to get all gifs related to a users search 
+ - getSearchedGifs: A function to get all gifs related to a users search
   
  */
 
@@ -29,6 +29,16 @@ class GiphyApi : ObservableObject{
     @Published var trendingResponse = TrendingResponse(data: [TrendingData(type: "", url: "", title: "")])
     @Published var isFinished: Bool = false
     @Published var doneSearching: Bool = false
+    @Published var localURL: URL =  URL(string:"nothing")!
+    @Published var favouritesArray: [String]
+    
+    init(favouritesArray: [String]){
+        self.favouritesArray = favouritesArray
+        let favourites = FileManager().enumerator(atPath: "\(NSHomeDirectory())/Documents")
+        for favourite in favourites!{
+            self.favouritesArray.append(favourite as! String)
+        }
+    }
     
     /**
     A function that sends a request to the Giphy API to get the latest trending gifs and parses the response
@@ -127,7 +137,7 @@ class GiphyApi : ObservableObject{
         self.isFinished = false
         self.doneSearching = false
         
-        let url = URL(string: "https://api.giphy.com/v1/gifs/search?api_key=pAV7WsmKVwCuuLZPS0d3X3180xqW0rma&q=\(query)&limit=2&offset=0&rating=g&lang=en")! // force unwraps url because we know its a valid unchanging string as an input
+        let url = URL(string: "https://api.giphy.com/v1/gifs/search?api_key=pAV7WsmKVwCuuLZPS0d3X3180xqW0rma&q=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!))&limit=2&offset=0&rating=g&lang=en")! // force unwraps url because we know its a valid string. Also percent encoding allows for searching strings with spaces like "Dance Dance Revolution"
     
         let request = URLRequest(url: url)
         let session = URLSession.shared
@@ -163,6 +173,64 @@ class GiphyApi : ObservableObject{
         }
         task.resume()
     }
+
+    func downloadGif(){
+        let url = URL(string: "https://media1.giphy.com/media/xT1XGxMBRTedbb5pSw/200w.mp4")!
+        //let directory = try FileManager.default.url(for: directory, in: .userDomainMask, appropriateFor: nil, create: true)
+
+        let task = URLSession.shared.downloadTask(with: url) { localURL, urlResponse, error in
+            if let localURL = localURL {
+                    print(localURL)
+                    DispatchQueue.main.async {
+                        self.localURL = localURL
+                        
+                        print("done")
+                    }
+                }
+        }
+        task.resume()
+    }
+    
     
 }
 
+extension URL {
+    func download(to directory: FileManager.SearchPathDirectory, fileName: String? = nil, completion: @escaping (URL?, Error?) -> Void) throws {
+        let directory = try FileManager.default.url(for: directory, in: .userDomainMask, appropriateFor: nil, create: true)
+        let destination: URL
+        
+        // creates the destination path for each favourited gif
+        if let fileName = fileName {
+            destination = directory
+                .appendingPathComponent(fileName)
+                .appendingPathExtension(self.pathExtension)
+            print(destination)
+        } else {
+            destination = directory
+            .appendingPathComponent(lastPathComponent)
+        }
+        
+        // if file exists i.e is already in favourites delete it
+        if (FileManager.default.fileExists(atPath: destination.path)) { completion(destination, nil)
+            if FileManager.default.fileExists(atPath: destination.path) {
+                try FileManager.default.removeItem(at: destination)
+            }
+            return
+        }
+        
+        //downloads the gif and moves it to the destination directory
+        URLSession.shared.downloadTask(with: self) { location, _, error in
+            guard let location = location else {
+                completion(nil, error)
+                return
+            }
+            do{
+                try FileManager.default.moveItem(at: location, to: destination)
+                completion(destination, nil)
+            }
+            catch {
+                print(error)
+            }
+        }.resume()
+    }
+}

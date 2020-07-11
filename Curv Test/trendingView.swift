@@ -22,7 +22,7 @@ struct trendingView: View {
                             // populates list with latest trending gifs
                             if  !self.giphyObject.doneSearching{
                                 ForEach(self.giphyObject.trendingResponse.data, id: \.self){trendingGif in
-                                    NavigationLink(destination: detailView(gifTitle: trendingGif.title!, gifURL: "https://media1.giphy.com/media/\(trendingGif.id!)/200w.mp4")){
+                                    NavigationLink(destination: detailView(giphyObject: self.giphyObject, gifTitle: trendingGif.title!, gifURL: "https://media1.giphy.com/media/\(trendingGif.id!)/200w.mp4")){
                                         Text(trendingGif.title!)
                                     }
                                 }
@@ -30,7 +30,7 @@ struct trendingView: View {
                             // populates list with gifs from search results
                             else{
                             ForEach(self.giphyObject.trendingResponse.data, id: \.self){trendingGif in
-                                NavigationLink(destination: detailView(gifTitle: trendingGif.title!, gifURL: "https://media1.giphy.com/media/\(trendingGif.id!)/200w.mp4")){
+                                NavigationLink(destination: detailView(giphyObject: self.giphyObject, gifTitle: trendingGif.title!, gifURL: "https://media1.giphy.com/media/\(trendingGif.id!)/200w.mp4")){
                                     Text(trendingGif.title!)
                                 }
                             }

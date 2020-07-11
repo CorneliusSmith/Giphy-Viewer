@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct SearchView: View {
-    @ObservedObject var giphyObject = GiphyApi()
+    @ObservedObject var giphyObject : GiphyApi
     @Binding var searchString: String 
 
     var body: some View {

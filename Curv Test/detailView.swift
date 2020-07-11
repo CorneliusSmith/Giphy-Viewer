@@ -10,24 +10,38 @@ import SwiftUI
 import UIKit
 
 struct detailView: View {
+    @ObservedObject var giphyObject: GiphyApi
     var gifTitle: String
     var gifURL: String
     var sizeRect = UIScreen.main.bounds
     
     var body: some View {
         VStack{
-            GifView(gifURL: URL(string: gifURL)!)
+            GifView(gifURL: URL(string: self.gifURL)!)
                     .frame(width: sizeRect.width, height: 400, alignment: .center)
             HStack{
                 Text("Favourite:")
                     .font(.title)
                 Button(action: {
-                    print("Hi")
+                    //print(self.gifURL)
+                    do {
+                        try URL(string: self.gifURL)!.download(to: .documentDirectory, fileName: self.gifTitle) { url, error in
+                            DispatchQueue.main.async{
+                                self.giphyObject.localURL = url!
+                                //print(self.giphyObject.localURL)
+                            }
+                        }
+                    } catch {
+                        print(error)
+                    }
+                    //self.giphyObject.downloadGif()
                 }){
                     Image(systemName: "star.fill")
                     .resizable()
                     .frame(width: 25, height: 25)
                 }
+            }.onAppear(){
+                print(self.gifURL)
             }
                 
             

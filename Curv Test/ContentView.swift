@@ -10,7 +10,7 @@ import SwiftUI
 
 
 struct ContentView: View {
-    @ObservedObject var giphyObject = GiphyApi()
+    @ObservedObject var giphyObject = GiphyApi(favouritesArray: [])
     @State var searchString: String = ""
     @State private var selection = 0
     
@@ -26,7 +26,7 @@ struct ContentView: View {
                 }
                 .tag(0)
             
-                FavouritesView()
+            FavouritesView(giphyObject: self.giphyObject)
                     .tabItem {
                         VStack {
                             Image(systemName: "star.fill")

@@ -13,11 +13,13 @@ import SwiftUI
 struct GifView: UIViewControllerRepresentable{
     var gifURL : URL
     
+    
     func makeUIViewController(context: UIViewControllerRepresentableContext<GifView>) -> AVPlayerViewController {
         
         let playerViewController = AVPlayerViewController()
         
         let player = AVPlayer(url: gifURL)
+        print(self.gifURL)
         playerViewController.player = player
         playerViewController.player?.play()
         playerViewController.showsPlaybackControls = true
@@ -30,7 +32,6 @@ struct GifView: UIViewControllerRepresentable{
     }
     
     func updateUIViewController(_ uiViewController: AVPlayerViewController, context: UIViewControllerRepresentableContext<GifView>) {
-        
     }
     
 }
