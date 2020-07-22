@@ -13,17 +13,19 @@ import SwiftUI
 struct GifView: UIViewControllerRepresentable{
     var gifURL : URL
     var showPlayerControls : Bool
+    let playerViewController : AVPlayerViewController
+
     
     /// Creates the view controller for the player to play gifs
     func makeUIViewController(context: UIViewControllerRepresentableContext<GifView>) -> AVPlayerViewController {
-        
-        let playerViewController = AVPlayerViewController()
-        
+            
         /// Creates an AVPlayer and sets it to autoplay when it's presented
+        self.playerViewController.player?.pause()
+        self.playerViewController.player = nil
         let player = AVPlayer(url: self.gifURL)
-        playerViewController.player = player
-        playerViewController.player?.play()
-        playerViewController.showsPlaybackControls = self.showPlayerControls
+        self.playerViewController.player = player
+        self.playerViewController.player?.play()
+        self.playerViewController.showsPlaybackControls = self.showPlayerControls
         
         /// When the end of the gif is reached, seek back to the start to loop it
         self.loopGif(player: player)

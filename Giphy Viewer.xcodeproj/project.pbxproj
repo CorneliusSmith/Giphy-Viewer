@@ -9,21 +9,22 @@
 /* Begin PBXBuildFile section */
 		AE53488124B9F74A004E8DE6 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE53488024B9F74A004E8DE6 /* CollectionViewCell.swift */; };
 		AE53488324B9F821004E8DE6 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE53488224B9F821004E8DE6 /* CollectionView.swift */; };
-		AE53488524B9F869004E8DE6 /* CollecionViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE53488424B9F869004E8DE6 /* CollecionViewCoordinator.swift */; };
+		AE53488524B9F869004E8DE6 /* CollectionViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE53488424B9F869004E8DE6 /* CollectionViewCoordinator.swift */; };
 		AE9577AC24B7C37A00A818BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9577AB24B7C37A00A818BD /* AppDelegate.swift */; };
 		AE9577AE24B7C37A00A818BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9577AD24B7C37A00A818BD /* SceneDelegate.swift */; };
 		AE9577B024B7C37A00A818BD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9577AF24B7C37A00A818BD /* ContentView.swift */; };
 		AE9577B224B7C37F00A818BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE9577B124B7C37F00A818BD /* Assets.xcassets */; };
 		AE9577B524B7C37F00A818BD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE9577B424B7C37F00A818BD /* Preview Assets.xcassets */; };
 		AE9577B824B7C37F00A818BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE9577B624B7C37F00A818BD /* LaunchScreen.storyboard */; };
-		AE9577C324B7C37F00A818BD /* Curv_TestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9577C224B7C37F00A818BD /* Curv_TestTests.swift */; };
-		AE9577CE24B7C37F00A818BD /* Curv_TestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9577CD24B7C37F00A818BD /* Curv_TestUITests.swift */; };
+		AE9577C324B7C37F00A818BD /* Giphy ViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9577C224B7C37F00A818BD /* Giphy ViewerTests.swift */; };
+		AE9577CE24B7C37F00A818BD /* Giphy ViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9577CD24B7C37F00A818BD /* Giphy ViewerUITests.swift */; };
 		AE9577DC24B7C95C00A818BD /* TrendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9577DB24B7C95C00A818BD /* TrendingView.swift */; };
 		AE9577DE24B7CFB700A818BD /* GiphyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9577DD24B7CFB700A818BD /* GiphyAPI.swift */; };
 		AE9577E024B8069F00A818BD /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9577DF24B8069F00A818BD /* DetailView.swift */; };
 		AE9577E224B8122B00A818BD /* GifView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9577E124B8122B00A818BD /* GifView.swift */; };
 		AE9577E424B8E78D00A818BD /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9577E324B8E78D00A818BD /* SearchView.swift */; };
 		AE95782224B90CD500A818BD /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE95782124B90CD500A818BD /* FavouritesView.swift */; };
+		AE9B84BB24C8C0830098A4ED /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE9B84BA24C8C0830098A4ED /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,8 +47,8 @@
 /* Begin PBXFileReference section */
 		AE53488024B9F74A004E8DE6 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		AE53488224B9F821004E8DE6 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
-		AE53488424B9F869004E8DE6 /* CollecionViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollecionViewCoordinator.swift; sourceTree = "<group>"; };
-		AE9577A824B7C37A00A818BD /* Curv Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Curv Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE53488424B9F869004E8DE6 /* CollectionViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCoordinator.swift; sourceTree = "<group>"; };
+		AE9577A824B7C37A00A818BD /* Giphy Viewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Giphy Viewer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9577AB24B7C37A00A818BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE9577AD24B7C37A00A818BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		AE9577AF24B7C37A00A818BD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,11 +56,11 @@
 		AE9577B424B7C37F00A818BD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AE9577B724B7C37F00A818BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE9577B924B7C37F00A818BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AE9577BE24B7C37F00A818BD /* Curv TestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Curv TestTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AE9577C224B7C37F00A818BD /* Curv_TestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curv_TestTests.swift; sourceTree = "<group>"; };
+		AE9577BE24B7C37F00A818BD /* Giphy ViewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Giphy ViewerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE9577C224B7C37F00A818BD /* Giphy ViewerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Giphy ViewerTests.swift"; sourceTree = "<group>"; };
 		AE9577C424B7C37F00A818BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AE9577C924B7C37F00A818BD /* Curv TestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Curv TestUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AE9577CD24B7C37F00A818BD /* Curv_TestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curv_TestUITests.swift; sourceTree = "<group>"; };
+		AE9577C924B7C37F00A818BD /* Giphy ViewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Giphy ViewerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE9577CD24B7C37F00A818BD /* Giphy ViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Giphy ViewerUITests.swift"; sourceTree = "<group>"; };
 		AE9577CF24B7C37F00A818BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE9577DB24B7C95C00A818BD /* TrendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingView.swift; sourceTree = "<group>"; };
 		AE9577DD24B7CFB700A818BD /* GiphyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyAPI.swift; sourceTree = "<group>"; };
@@ -67,6 +68,7 @@
 		AE9577E124B8122B00A818BD /* GifView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifView.swift; sourceTree = "<group>"; };
 		AE9577E324B8E78D00A818BD /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		AE95782124B90CD500A818BD /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
+		AE9B84BA24C8C0830098A4ED /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +99,10 @@
 		AE95779F24B7C37A00A818BD = {
 			isa = PBXGroup;
 			children = (
-				AE9577AA24B7C37A00A818BD /* Curv Test */,
-				AE9577C124B7C37F00A818BD /* Curv TestTests */,
-				AE9577CC24B7C37F00A818BD /* Curv TestUITests */,
+				AE9B84BA24C8C0830098A4ED /* Default-568h@2x.png */,
+				AE9577AA24B7C37A00A818BD /* Giphy Viewer */,
+				AE9577C124B7C37F00A818BD /* Giphy ViewerTests */,
+				AE9577CC24B7C37F00A818BD /* Giphy ViewerUITests */,
 				AE9577A924B7C37A00A818BD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -107,19 +110,19 @@
 		AE9577A924B7C37A00A818BD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AE9577A824B7C37A00A818BD /* Curv Test.app */,
-				AE9577BE24B7C37F00A818BD /* Curv TestTests.xctest */,
-				AE9577C924B7C37F00A818BD /* Curv TestUITests.xctest */,
+				AE9577A824B7C37A00A818BD /* Giphy Viewer.app */,
+				AE9577BE24B7C37F00A818BD /* Giphy ViewerTests.xctest */,
+				AE9577C924B7C37F00A818BD /* Giphy ViewerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AE9577AA24B7C37A00A818BD /* Curv Test */ = {
+		AE9577AA24B7C37A00A818BD /* Giphy Viewer */ = {
 			isa = PBXGroup;
 			children = (
 				AE53488024B9F74A004E8DE6 /* CollectionViewCell.swift */,
 				AE53488224B9F821004E8DE6 /* CollectionView.swift */,
-				AE53488424B9F869004E8DE6 /* CollecionViewCoordinator.swift */,
+				AE53488424B9F869004E8DE6 /* CollectionViewCoordinator.swift */,
 				AE9577AB24B7C37A00A818BD /* AppDelegate.swift */,
 				AE9577AD24B7C37A00A818BD /* SceneDelegate.swift */,
 				AE9577AF24B7C37A00A818BD /* ContentView.swift */,
@@ -134,7 +137,7 @@
 				AE9577B924B7C37F00A818BD /* Info.plist */,
 				AE9577B324B7C37F00A818BD /* Preview Content */,
 			);
-			path = "Curv Test";
+			path = "Giphy Viewer";
 			sourceTree = "<group>";
 		};
 		AE9577B324B7C37F00A818BD /* Preview Content */ = {
@@ -145,30 +148,30 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		AE9577C124B7C37F00A818BD /* Curv TestTests */ = {
+		AE9577C124B7C37F00A818BD /* Giphy ViewerTests */ = {
 			isa = PBXGroup;
 			children = (
-				AE9577C224B7C37F00A818BD /* Curv_TestTests.swift */,
+				AE9577C224B7C37F00A818BD /* Giphy ViewerTests.swift */,
 				AE9577C424B7C37F00A818BD /* Info.plist */,
 			);
-			path = "Curv TestTests";
+			path = "Giphy ViewerTests";
 			sourceTree = "<group>";
 		};
-		AE9577CC24B7C37F00A818BD /* Curv TestUITests */ = {
+		AE9577CC24B7C37F00A818BD /* Giphy ViewerUITests */ = {
 			isa = PBXGroup;
 			children = (
-				AE9577CD24B7C37F00A818BD /* Curv_TestUITests.swift */,
+				AE9577CD24B7C37F00A818BD /* Giphy ViewerUITests.swift */,
 				AE9577CF24B7C37F00A818BD /* Info.plist */,
 			);
-			path = "Curv TestUITests";
+			path = "Giphy ViewerUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AE9577A724B7C37A00A818BD /* Curv Test */ = {
+		AE9577A724B7C37A00A818BD /* Giphy Viewer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AE9577D224B7C37F00A818BD /* Build configuration list for PBXNativeTarget "Curv Test" */;
+			buildConfigurationList = AE9577D224B7C37F00A818BD /* Build configuration list for PBXNativeTarget "Giphy Viewer" */;
 			buildPhases = (
 				AE9577A424B7C37A00A818BD /* Sources */,
 				AE9577A524B7C37A00A818BD /* Frameworks */,
@@ -178,14 +181,14 @@
 			);
 			dependencies = (
 			);
-			name = "Curv Test";
+			name = "Giphy Viewer";
 			productName = "Curv Test";
-			productReference = AE9577A824B7C37A00A818BD /* Curv Test.app */;
+			productReference = AE9577A824B7C37A00A818BD /* Giphy Viewer.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AE9577BD24B7C37F00A818BD /* Curv TestTests */ = {
+		AE9577BD24B7C37F00A818BD /* Giphy ViewerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AE9577D524B7C37F00A818BD /* Build configuration list for PBXNativeTarget "Curv TestTests" */;
+			buildConfigurationList = AE9577D524B7C37F00A818BD /* Build configuration list for PBXNativeTarget "Giphy ViewerTests" */;
 			buildPhases = (
 				AE9577BA24B7C37F00A818BD /* Sources */,
 				AE9577BB24B7C37F00A818BD /* Frameworks */,
@@ -196,14 +199,14 @@
 			dependencies = (
 				AE9577C024B7C37F00A818BD /* PBXTargetDependency */,
 			);
-			name = "Curv TestTests";
+			name = "Giphy ViewerTests";
 			productName = "Curv TestTests";
-			productReference = AE9577BE24B7C37F00A818BD /* Curv TestTests.xctest */;
+			productReference = AE9577BE24B7C37F00A818BD /* Giphy ViewerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		AE9577C824B7C37F00A818BD /* Curv TestUITests */ = {
+		AE9577C824B7C37F00A818BD /* Giphy ViewerUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AE9577D824B7C37F00A818BD /* Build configuration list for PBXNativeTarget "Curv TestUITests" */;
+			buildConfigurationList = AE9577D824B7C37F00A818BD /* Build configuration list for PBXNativeTarget "Giphy ViewerUITests" */;
 			buildPhases = (
 				AE9577C524B7C37F00A818BD /* Sources */,
 				AE9577C624B7C37F00A818BD /* Frameworks */,
@@ -214,9 +217,9 @@
 			dependencies = (
 				AE9577CB24B7C37F00A818BD /* PBXTargetDependency */,
 			);
-			name = "Curv TestUITests";
+			name = "Giphy ViewerUITests";
 			productName = "Curv TestUITests";
-			productReference = AE9577C924B7C37F00A818BD /* Curv TestUITests.xctest */;
+			productReference = AE9577C924B7C37F00A818BD /* Giphy ViewerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -242,7 +245,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AE9577A324B7C37A00A818BD /* Build configuration list for PBXProject "Curv Test" */;
+			buildConfigurationList = AE9577A324B7C37A00A818BD /* Build configuration list for PBXProject "Giphy Viewer" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -255,9 +258,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AE9577A724B7C37A00A818BD /* Curv Test */,
-				AE9577BD24B7C37F00A818BD /* Curv TestTests */,
-				AE9577C824B7C37F00A818BD /* Curv TestUITests */,
+				AE9577A724B7C37A00A818BD /* Giphy Viewer */,
+				AE9577BD24B7C37F00A818BD /* Giphy ViewerTests */,
+				AE9577C824B7C37F00A818BD /* Giphy ViewerUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -268,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE9577B824B7C37F00A818BD /* LaunchScreen.storyboard in Resources */,
+				AE9B84BB24C8C0830098A4ED /* Default-568h@2x.png in Resources */,
 				AE9577B524B7C37F00A818BD /* Preview Assets.xcassets in Resources */,
 				AE9577B224B7C37F00A818BD /* Assets.xcassets in Resources */,
 			);
@@ -294,7 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE53488524B9F869004E8DE6 /* CollecionViewCoordinator.swift in Sources */,
+				AE53488524B9F869004E8DE6 /* CollectionViewCoordinator.swift in Sources */,
 				AE53488124B9F74A004E8DE6 /* CollectionViewCell.swift in Sources */,
 				AE9577E224B8122B00A818BD /* GifView.swift in Sources */,
 				AE95782224B90CD500A818BD /* FavouritesView.swift in Sources */,
@@ -313,7 +317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE9577C324B7C37F00A818BD /* Curv_TestTests.swift in Sources */,
+				AE9577C324B7C37F00A818BD /* Giphy ViewerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,7 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE9577CE24B7C37F00A818BD /* Curv_TestUITests.swift in Sources */,
+				AE9577CE24B7C37F00A818BD /* Giphy ViewerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,12 +334,12 @@
 /* Begin PBXTargetDependency section */
 		AE9577C024B7C37F00A818BD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AE9577A724B7C37A00A818BD /* Curv Test */;
+			target = AE9577A724B7C37A00A818BD /* Giphy Viewer */;
 			targetProxy = AE9577BF24B7C37F00A818BD /* PBXContainerItemProxy */;
 		};
 		AE9577CB24B7C37F00A818BD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AE9577A724B7C37A00A818BD /* Curv Test */;
+			target = AE9577A724B7C37A00A818BD /* Giphy Viewer */;
 			targetProxy = AE9577CA24B7C37F00A818BD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -469,12 +473,11 @@
 		AE9577D324B7C37F00A818BD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Curv Test/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Giphy Viewer/Preview Content\"";
 				DEVELOPMENT_TEAM = GABX74AR52;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Curv Test/Info.plist";
+				INFOPLIST_FILE = "Giphy Viewer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -489,12 +492,11 @@
 		AE9577D424B7C37F00A818BD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Curv Test/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Giphy Viewer/Preview Content\"";
 				DEVELOPMENT_TEAM = GABX74AR52;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Curv Test/Info.plist";
+				INFOPLIST_FILE = "Giphy Viewer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -513,7 +515,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GABX74AR52;
-				INFOPLIST_FILE = "Curv TestTests/Info.plist";
+				INFOPLIST_FILE = "Giphy ViewerTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -535,7 +537,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GABX74AR52;
-				INFOPLIST_FILE = "Curv TestTests/Info.plist";
+				INFOPLIST_FILE = "Giphy ViewerTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -556,7 +558,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GABX74AR52;
-				INFOPLIST_FILE = "Curv TestUITests/Info.plist";
+				INFOPLIST_FILE = "Giphy ViewerUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -576,7 +578,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GABX74AR52;
-				INFOPLIST_FILE = "Curv TestUITests/Info.plist";
+				INFOPLIST_FILE = "Giphy ViewerUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -593,7 +595,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AE9577A324B7C37A00A818BD /* Build configuration list for PBXProject "Curv Test" */ = {
+		AE9577A324B7C37A00A818BD /* Build configuration list for PBXProject "Giphy Viewer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AE9577D024B7C37F00A818BD /* Debug */,
@@ -602,7 +604,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AE9577D224B7C37F00A818BD /* Build configuration list for PBXNativeTarget "Curv Test" */ = {
+		AE9577D224B7C37F00A818BD /* Build configuration list for PBXNativeTarget "Giphy Viewer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AE9577D324B7C37F00A818BD /* Debug */,
@@ -611,7 +613,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AE9577D524B7C37F00A818BD /* Build configuration list for PBXNativeTarget "Curv TestTests" */ = {
+		AE9577D524B7C37F00A818BD /* Build configuration list for PBXNativeTarget "Giphy ViewerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AE9577D624B7C37F00A818BD /* Debug */,
@@ -620,7 +622,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AE9577D824B7C37F00A818BD /* Build configuration list for PBXNativeTarget "Curv TestUITests" */ = {
+		AE9577D824B7C37F00A818BD /* Build configuration list for PBXNativeTarget "Giphy ViewerUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AE9577D924B7C37F00A818BD /* Debug */,

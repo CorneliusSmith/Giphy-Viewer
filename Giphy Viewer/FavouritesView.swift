@@ -13,6 +13,7 @@ struct FavouritesView: View {
     @ObservedObject var giphyObject: GiphyApi
     @State var data: [Int]
     @State var changeView = false
+    var x = 0
     
     
     @State var favouritesArray: [String] = []
@@ -42,7 +43,7 @@ struct FavouritesView: View {
                 self.getFavourites()
             }
             .navigationBarTitle("Favourites")
-            .navigationBarItems(trailing: Toggle(isOn: self.$changeView){Text("")})
+            .navigationBarItems(trailing: Toggle(isOn: $changeView){Text("")})
         }
     }
     
@@ -78,7 +79,6 @@ public struct CollectionView<CellType: UICollectionViewCell & Configurable>: UIV
      - Parameters:
        - uiView: The CollectionView to be reloaded
        - context: The coordinator to carry out the update
-     
      */
     public func updateUIView(_ uiView: GenericCollectionView<CellType>, context: Context) {
         uiView.reloadData()

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import SwiftUI
+import AVKit
 
 public extension UICollectionViewCell {
   static var stringIdentifier: String { String(describing: Self.self) }
@@ -23,7 +24,7 @@ public protocol Configurable {
 
 public class CollectionViewCell<DataType: CustomStringConvertible>: UICollectionViewCell, Configurable {
     /// Sets a custom view to the GifPlayer view  to show in each cell later
-    let customView = UIHostingController(rootView: GifView(gifURL: URL(string: "none")!, showPlayerControls: false))
+    let customView = UIHostingController(rootView: GifView(gifURL: URL(string: "none")!, showPlayerControls: false, playerViewController: AVPlayerViewController()))
     
     
     /// Overrides the reqular initializer for the CollectionViewCell
@@ -61,6 +62,6 @@ public class CollectionViewCell<DataType: CustomStringConvertible>: UICollection
     
     public func configure(using data: DataType) {
         let favouriteURL = "file://\(NSHomeDirectory())/Documents/\(data.description)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        customView.rootView = GifView(gifURL: URL(string: favouriteURL)!, showPlayerControls: false)
+        customView.rootView = GifView(gifURL: URL(string: favouriteURL)!, showPlayerControls: false, playerViewController: AVPlayerViewController())
     }
 }

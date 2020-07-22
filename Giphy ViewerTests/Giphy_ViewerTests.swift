@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Curv_Test
+//@testable import Giphy_Viewer
 
 class Curv_TestTests: XCTestCase {
 

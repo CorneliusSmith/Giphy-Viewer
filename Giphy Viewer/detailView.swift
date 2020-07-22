@@ -8,6 +8,7 @@
 
 import SwiftUI
 import UIKit
+import AVKit
 
 struct DetailView: View {
     @ObservedObject var giphyObject: GiphyApi
@@ -17,7 +18,7 @@ struct DetailView: View {
     
     var body: some View {
         VStack{
-            GifView(gifURL: URL(string: self.gifURL)!, showPlayerControls: true)
+            GifView(gifURL: URL(string: self.gifURL)!, showPlayerControls: true, playerViewController: AVPlayerViewController())
                     .frame(width: sizeRect.width, height: 400, alignment: .center)
             HStack{
                 Text("Favourite/Unfavourite:")
